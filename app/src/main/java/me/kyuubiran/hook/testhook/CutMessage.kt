@@ -4,8 +4,7 @@ import android.os.Looper
 import android.widget.Toast
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedBridge
-import me.kyuubiran.utils.getObjectOrNull
-import me.kyuubiran.utils.logd
+import me.kyuubiran.util.*
 import me.singleneuron.data.MsgRecordData
 import nil.nadph.qnotified.SyncUtils
 import nil.nadph.qnotified.config.ConfigManager
@@ -37,10 +36,11 @@ object CutMessage : BaseDelayableHook() {
                         override fun beforeHookedMethod(param: MethodHookParam?) {
                             if (LicenseStatus.sDisableCommonHooks) return
                             if (!isEnabled) return
-                            val msgRecord = param?.args?.get(0)?: return
-                            if (msgRecord::class.java.name!="com.tencent.imcore.message.QQMessageFacade${'$'}Message") return
+                            val msgRecord = param?.args?.get(0) ?: return
+                            if (msgRecord::class.java.name != "com.tencent.imcore.message.QQMessageFacade${'$'}Message") return
                             val msgRecordData = MsgRecordData(msgRecord)
                             try {
+                                logd(LOG_TYPE_FIND_METHOD, "->$m")
                                 logd("收到一份消息: \n$msgRecordData")
                                 //logd(msgRecord::class.java.name)
                                 /*val msg = getMsg(msgRecord)

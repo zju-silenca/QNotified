@@ -5,7 +5,7 @@ import android.widget.Toast
 import de.robv.android.xposed.XC_MethodHook
 
 import de.robv.android.xposed.XposedBridge
-import me.kyuubiran.utils.getMethods
+import me.kyuubiran.util.getMethods
 import nil.nadph.qnotified.SyncUtils
 import nil.nadph.qnotified.config.ConfigManager
 import nil.nadph.qnotified.hook.BaseDelayableHook
@@ -24,13 +24,13 @@ object TestBaseDelayable : BaseDelayableHook() {
     }
 
     override fun init(): Boolean {
-        if (isInited) return true
+        if (isInit) return true
         return try {
             for (m: Method in getMethods("className")) {
                 val argt = m.parameterTypes
                 if (m.name == "methodName" && argt.size == 1) {
                     XposedBridge.hookMethod(m, object : XC_MethodHook() {
-                        override fun beforeHookedMethod(param: MethodHookParam?) {
+                        override fun beforeHookedMethod(param: MethodHookParam) {
                             if (LicenseStatus.sDisableCommonHooks) return
                             if (!isEnabled) return
                             Utils.logd("这是一个BaseDelayable模板")
