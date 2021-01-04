@@ -2,7 +2,7 @@
 
 [![Build status](https://build.appcenter.ms/v0.1/apps/599b1851-3361-4e64-a277-6a4c8f6e7332/branches/master/badge)](https://install.appcenter.ms/orgs/qnotifieddev/apps/qnotified/distribution_groups/alpha)
 [![license](https://img.shields.io/github/license/ferredoxin/QNotified.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![GitHub release](https://img.shields.io/github/release/ferredoxin/QNotified.svg)](https://github.com/ferredoxin/QNotified/releases/latest) 
+[![GitHub release](https://img.shields.io/github/release/ferredoxin/QNotified.svg)](https://github.com/ferredoxin/QNotified/releases/latest)
 
 ---
 
@@ -27,7 +27,7 @@ QNotified is a Xposed module for mobile QQ that aims to:
 - **适配QQ版本** : 普通版QQ,TIM (全版本)
 - **使用方法** : 在Xposed Installer 激活模块后，在QQ自带设置中点击QNotified即可开关对应功能。
 - 关于删好友通知:  **(从安装并激活日起生效，无法查看安装本模块以前删除自己的好友!)** ,自己删除好友没有多余提示但是有记录。激活模块后自动检测，无需手动配置.
-- QQ内模块界面主题自动跟随 QQ主题 或 Substratum主题如MaterialQQ - GoogleBlue 或 ColorQQ(2) . 
+- QQ内模块界面主题自动跟随 QQ主题 或 Substratum主题如MaterialQQ - GoogleBlue 或 ColorQQ(2) .  
 
 ## 一切开发旨在学习，请勿用于非法用途
 
@@ -64,6 +64,13 @@ QNotified is a Xposed module for mobile QQ that aims to:
 25. 自定义+1图标
 26. 群发文本消息(注1)
 27. 显示具体消息数量而不是99+(原花Q)
+28. 隐藏侧滑群应用
+29. 隐藏好友侧滑亲密抽屉
+30. 使用系统相机
+31. 使用系统相册
+32. 使用系统文件
+33. 聊天自动发送原图
+34. 隐藏小红点
 
 注1: 卡片消息及群发文本这两个功能因大量被用于广告引流而废除
 
