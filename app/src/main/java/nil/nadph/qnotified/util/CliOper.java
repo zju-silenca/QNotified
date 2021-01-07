@@ -17,7 +17,7 @@ import static nil.nadph.qnotified.util.Utils.getApplication;
 public class CliOper {
 
     private static boolean appCenterInit = false;
-    private static final String appCenterToken = BuildConfig.DEBUG?"530d3819-3543-46e3-8c59-5576604f3801":"ddf4b597-1833-45dd-af28-96ca504b8123";
+    private static final String appCenterToken = BuildConfig.DEBUG?"530d3819-3543-46e3-8c59-5576604f3801":"00000000-1833-45dd-af28-96ca504b8123";
 
     public static void __init__(Application app) {
         if (app == null) return;
@@ -64,7 +64,7 @@ public class CliOper {
             //ignored
         }
         __init__(Utils.getApplication());
-        Analytics.trackEvent("onLoad", properties);
+        //Analytics.trackEvent("onLoad", properties);
         Utils.logd("start App Center Trace OnLoad:" + properties.toString());
     }
 
@@ -73,7 +73,7 @@ public class CliOper {
         Map<String, String> prop = new HashMap<>();
         prop.put("retryCount", String.valueOf(retryCount));
         prop.put("chiralCount", String.valueOf(chiralCount));
-        Analytics.trackEvent("passAuth2Once", prop);
+        //Analytics.trackEvent("passAuth2Once", prop);
     }
 
     public static void abortAuth2Once(int retryCount) {
@@ -94,7 +94,7 @@ public class CliOper {
         if (msg == null) return;
         __init__(Utils.getApplication());
         try {
-            Analytics.trackEvent("copyCardMsg", digestCardMsg(msg));
+            //Analytics.trackEvent("copyCardMsg", digestCardMsg(msg));
         } catch (Throwable e) {
             Utils.log(e);
         }
@@ -106,7 +106,7 @@ public class CliOper {
         try {
             Map<String, String> prop = digestCardMsg(msg);
             prop.put("uin", String.valueOf(uin));
-            Analytics.trackEvent("sendCardMsg", prop);
+            //Analytics.trackEvent("sendCardMsg", prop);
         } catch (Throwable e) {
             Utils.log(e);
         }
@@ -122,7 +122,7 @@ public class CliOper {
         properties.put("uin", String.valueOf(uin));
         properties.put("count", String.valueOf(count));
         __init__(Utils.getApplication());
-        Analytics.trackEvent("batchSendMsg", properties);
+        //Analytics.trackEvent("batchSendMsg", properties);
     }
 
     private static Map<String, String> digestCardMsg(String msg) {
@@ -215,7 +215,7 @@ public class CliOper {
             __init__(Utils.getApplication());
             Map<String, String> prop = new HashMap<>();
             prop.put("name", shortName);
-            Analytics.trackEvent("enterModuleActivity", prop);
+            //Analytics.trackEvent("enterModuleActivity", prop);
             Utils.logd("Start App Center Trace enterModuleActivity: "+prop.toString());
         } catch (Throwable ignored) {
         }
